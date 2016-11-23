@@ -35,13 +35,13 @@
 - $ npm install -g nodemon
 ```
 
-- Running the server in development(needs to be running in it's own tab along while the front-end runs in another tab):
+- Running the server in development(needs to be running in it's own tab while the front-end runs in another tab):
 
 ```
 - $ nodemon (from the root of the application)
 ```
 
-- Running the front-end in development(needs to be running in it's own tab along while the server runs in another tab):
+- Running the front-end in development(needs to be running in it's own tab while the server runs in another tab):
 
 ```
 - $ npm run dev (then go to localhost:8080 - this runs webpack dev server)
