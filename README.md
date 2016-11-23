@@ -44,7 +44,7 @@
 - Running the front-end in development(needs to be running in it's own tab while the server runs in another tab):
 
 ```
-- $ npm run dev (then go to localhost:8080 - this runs webpack dev server)
+- $ npm run dev (from the root of the application, then go to localhost:8080 - this runs webpack dev server)
 ```
 
 ### Building to bundle.js file if you want to push changes:
