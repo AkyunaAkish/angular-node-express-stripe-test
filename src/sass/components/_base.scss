@@ -1,0 +1,14 @@
+@import '../utils/variables';
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Titillium Web', sans-serif;
+}
+
+img, embed, object, video {
+  max-width: 100%;
+  height: auto;
+}

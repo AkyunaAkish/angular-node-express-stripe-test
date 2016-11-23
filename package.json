@@ -1,0 +1,49 @@
+{
+  "name": "angular-node-express-stripe-test",
+  "version": "1.0.0",
+  "description": "angular-node-express-stripe-test",
+  "main": "./bin/www",
+  "scripts": {
+    "start": "node ./bin/www",
+    "dev": "NODE_ENV=development node_modules/.bin/webpack-dev-server --inline --hot",
+    "build": "NODE_ENV=production node_modules/.bin/webpack -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AkyunaAkish/angular-node-express-stripe-test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AkyunaAkish/angular-node-express-stripe-test/issues"
+  },
+  "homepage": "https://github.com/AkyunaAkish/angular-node-express-stripe-test#readme",
+  "devDependencies": {
+    "angular": "^1.5.8",
+    "angular-bootstrap": "^0.12.2",
+    "angular-ui-router": "^0.3.2",
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.8",
+    "babel-preset-es2015": "^6.18.0",
+    "css-loader": "^0.26.0",
+    "ng-annotate": "^1.2.1",
+    "ng-annotate-loader": "^0.2.0",
+    "node-sass": "^3.13.0",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "compression": "^1.6.2",
+    "debug": "^2.3.3",
+    "dotenv": "^2.0.0",
+    "express": "^4.14.0",
+    "knex": "^0.12.6",
+    "morgan": "^1.7.0",
+    "pg": "^6.1.0"
+  }
+}
