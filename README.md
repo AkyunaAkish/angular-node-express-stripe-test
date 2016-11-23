@@ -53,6 +53,6 @@
 - $ npm run build
 - $ git add .
 - $ git commit -m"Some Message"
-- Confirm that front-end and server works on localhost 3000: $ nodemon
+- Confirm that front-end and server work together on localhost 3000: $ nodemon
 - $ git push [--remote] [--branch]
 ```
