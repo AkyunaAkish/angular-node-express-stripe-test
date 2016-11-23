@@ -3,4 +3,8 @@ export default class SubscriptionController{
     this.title = 'Subscription'
     this.http = $http;
   }
+
+  testRoute() {
+    console.log('SUBSCRIPTION TEST ROUTE CALLED');
+  }
 }

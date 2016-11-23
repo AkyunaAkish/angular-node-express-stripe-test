@@ -1,13 +1,13 @@
-var express = require('express');
-var path = require('path');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var compression = require('compression');
+const express = require('express');
+const path = require('path');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const compression = require('compression');
 
-var stripeRoutes = require('./api_routes/stripe.js');
+const stripeRoutes = require('./server_components/stripe/stripe.js');
 
-var app = express();
+const app = express();
 
 app.use(logger('dev'));
 app.use(compression());
@@ -16,20 +16,20 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'dist')));
 
-app.use('/api/v1/stripe/', stripeRoutes);
+app.use('/stripe/', stripeRoutes);
 
-app.all('*', function(req, res, next) {
+app.all('*', (req, res, next) => {
   res.sendFile('index.html', { root: __dirname + '/dist/' });
 });
 
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
+app.use((req, res, next) => {
+  const err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
 if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
+  app.use((err, req, res, next) => {
     res.status(err.status || 500);
     res.json({
       message: err.message,
@@ -38,7 +38,7 @@ if (app.get('env') === 'development') {
   });
 }
 
-app.use(function(err, req, res, next) {
+app.use((err, req, res, next) => {
   res.status(err.status || 500);
   res.json({
     message: err.message,

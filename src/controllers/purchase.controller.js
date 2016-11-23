@@ -3,4 +3,8 @@ export default class PurchaseController{
     this.title = 'Purchase'
     this.http = $http;
   }
+
+  testRoute() {
+    console.log('PURCHASE TEST ROUTE CALLED');
+  }
 }
