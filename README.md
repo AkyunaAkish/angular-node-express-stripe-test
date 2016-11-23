@@ -11,6 +11,8 @@
 - BABEL/ES6
 - NODE.JS
 - EXPRESS.JS
+- KNEX.JS
+- PostgreSQL
 - STRIPE.JS
 ```
 
