@@ -4,11 +4,13 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const compression = require('compression');
+const cors = require('cors');
 
 const stripeRoutes = require('./server_components/stripe/stripe.js');
 
 const app = express();
 
+app.use(cors());
 app.use(logger('dev'));
 app.use(compression());
 app.use(bodyParser.json());

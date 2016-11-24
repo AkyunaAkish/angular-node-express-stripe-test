@@ -1,6 +1,8 @@
-export default class HomeController{
+export default class HomeController {
   constructor($http){
-    this.title = 'Home'
+    this.title = 'Stripe Test Home'
     this.http = $http;
   }
-}
+};
+
+HomeController.$inject = ['$http'];

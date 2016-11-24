@@ -1,0 +1,17 @@
+{
+  "name": "dist",
+  "homepage": "https://github.com/AkyunaAkish/angular-node-express-stripe-test",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "skeleton": "^2.0.4"
+  }
+}

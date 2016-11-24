@@ -3,7 +3,7 @@ export default(
   ($stateProvider, $urlRouterProvider, $locationProvider) => {
 
     $stateProvider
-    .state('/', {
+    .state('home', {
       url: '/',
       scope: {},
       template: require('./templates/home.html'),
