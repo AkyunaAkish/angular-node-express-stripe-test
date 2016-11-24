@@ -33,6 +33,7 @@
 - $ npm install -g knex
 - $ knex migrate:latest
 - $ npm install -g nodemon
+- $ cd dist && bower install
 ```
 
 - Running the server in development(needs to be running in it's own tab while the front-end runs in another tab):

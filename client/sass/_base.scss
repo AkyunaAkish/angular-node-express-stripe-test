@@ -1,0 +1,52 @@
+@import 'utils/variables';
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Titillium Web', sans-serif;
+}
+
+img, embed, object, video {
+  max-width: 100%;
+  height: auto;
+}
+
+.greenButton {
+  background-image: linear-gradient(to right, rgb(148,211,45) 0%, rgb(119,158,39) 100%);
+  background-repeat: repeat-x;
+  color: white;
+}
+
+.orangeButton {
+  background-image: linear-gradient(to right, rgb(243,99,6) 0%, rgb(247,128,0) 100%);
+  background-repeat: repeat-x;
+  color: white;
+}
+
+.redButton{
+  background-image: linear-gradient(to right, rgb(238,54,71) 0%, rgb(195,35,40) 100%);
+  background-repeat: repeat-x;
+  color: white;
+}
+
+.sectionContainer {
+  text-align: center;
+
+  button {
+    margin-bottom: 10px;
+    overflow: hidden;
+
+    &:hover {
+      color: black;
+    }
+  }
+  form {
+    label, input {
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 10px;
+    }
+  }
+}

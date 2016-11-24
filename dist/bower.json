@@ -12,6 +12,7 @@
     "tests"
   ],
   "dependencies": {
-    "skeleton": "^2.0.4"
+    "skeleton": "^2.0.4",
+    "bootstrap": "^3.3.7"
   }
 }

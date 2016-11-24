@@ -7,6 +7,7 @@ const compression = require('compression');
 const cors = require('cors');
 
 const stripeRoutes = require('./server_components/stripe/stripe.js');
+const invoiceRoutes = require('./server_components/invoices/invoices.js');
 
 const app = express();
 
@@ -18,7 +19,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'dist')));
 
-app.use('/stripe/', stripeRoutes);
+app.use('/stripe', stripeRoutes);
+app.use('/invoices', invoiceRoutes);
 
 app.all('*', (req, res, next) => {
   res.sendFile('index.html', { root: __dirname + '/dist/' });
@@ -47,6 +49,5 @@ app.use((err, req, res, next) => {
     error: {}
   });
 });
-
 
 module.exports = app;

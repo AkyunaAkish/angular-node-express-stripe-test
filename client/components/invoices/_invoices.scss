@@ -1,0 +1,9 @@
+@import '../../sass/utils/variables';
+
+.invoicesTable {
+  width: 80%;
+  margin: 0 auto;
+  * {
+    text-align: center !important;
+  }
+}

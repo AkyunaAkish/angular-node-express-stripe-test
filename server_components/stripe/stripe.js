@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const stripePurchase = require('./controllers/stripe_purchase.js').stripePurchase;
-const stripeSubscription = require('./controllers/stripe_subscription.js').stripeSubscription;
+const purchase = require('./controllers/purchase.js').purchase;
+const subscribe = require('./controllers/subscribe.js').subscribe;
 
-router.post('/purchase', stripePurchase);
-router.post('/subscription', stripeSubscription);
+router.post('/purchase', purchase);
+router.post('/subscribe', subscribe);
 
 module.exports = router;

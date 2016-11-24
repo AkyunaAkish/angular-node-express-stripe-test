@@ -1,0 +1,53 @@
+<div class='sectionContainer'>
+  <div>
+    <h1 ng-bind='vm.title'></h1>
+  </div>
+
+  <div>
+    <button class='greenButton' ng-click='vm.addInvoice()'>Add an Invoice</button>
+  </div>
+
+  <table class='table table-bordered invoicesTable'>
+    <thead>
+      <tr>
+        <th>Invoice #</th>
+        <th>$ Amount</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>One-Time Payment</th>
+        <th>Subscription Payment</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat='invoice in vm.invoices'>
+        <td ng-bind='invoice.id'></td>
+        <td ng-bind='invoice.amount'></td>
+        <td ng-bind='invoice.first_name'></td>
+        <td ng-bind='invoice.last_name'></td>
+        <td>
+          <button class='greenButton'>Pay Now</button>
+        </td>
+        <td>
+          <button class='orangeButton'>Subscribe Now</button>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- <div>
+<button class='greenButton' ui-sref='purchase'>Make a Purchase</button>
+</div>
+
+<div>
+<button class='orangeButton' ui-sref='subscription'>Start a Subscription</button>
+</div> -->

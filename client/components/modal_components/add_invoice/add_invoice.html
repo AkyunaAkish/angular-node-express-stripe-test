@@ -1,0 +1,20 @@
+<header class='modalHeader'>
+  <h1>Add An Invoice</h1>
+  <button class='closeModalButton pull-right redButton' ng-click='vm.closeModal()'>X</button>
+</header>
+
+<section class='modalFormSection'>
+  <form name='addInvoiceForm' ng-submit='vm.addInvoice()' novalidate>
+    <label for='firstName'>First Name
+      <input type='text' name='firstName' ng-model='vm.addInvoiceObj.firstName' required>
+    </label>
+    <label for='lastName'>Last Name
+      <input type='text' name='lastName' ng-model='vm.addInvoiceObj.lastName' required>
+    </label>
+    <label for='amount'>$ Amount
+      <input type='number' name='amount' ng-model='vm.addInvoiceObj.amount' required>
+    </label>
+
+    <button type='submit' class='orangeButton' ng-disabled='addInvoiceForm.$invalid'>Add Invoice</button>
+  </form>
+</section>

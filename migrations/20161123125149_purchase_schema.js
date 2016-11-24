@@ -4,7 +4,7 @@ exports.up = (knex, Promise) => {
     table.string('first_name').notNullable();
     table.string('last_name').notNullable();
     table.string('invoice').notNullable();
-    table.bigInteger('amount').notNullable();
+    table.decimal('amount').notNullable();
     table.bigInteger('created_at').notNullable().defaultTo(Date.now());
   });
 };

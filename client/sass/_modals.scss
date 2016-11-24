@@ -1,0 +1,21 @@
+@import 'utils/variables';
+
+.modalHeader {
+  border-bottom: 1px solid lightgrey;
+  padding: 10px;
+  h1 {
+    display: inline;
+  }
+
+}
+
+.modalFormSection {
+  text-align: center;
+
+  label, input, button {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+
+}

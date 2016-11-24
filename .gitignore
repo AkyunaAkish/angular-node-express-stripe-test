@@ -1,2 +1,6 @@
 .env
 node_modules
+dist/bundle.js
+dist/bundle.js.map
+dist/bower_components
+npm-debug.log

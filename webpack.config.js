@@ -7,7 +7,7 @@ const DEV = ENV === 'development';
 
 const config = {
   entry: [
-    './src/app.js'
+    './client/app.js'
   ],
   output: {
     path: `${__dirname}/dist/`,
