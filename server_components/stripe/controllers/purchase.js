@@ -1,18 +1,9 @@
 require('dotenv').config();
 const stripe = require('stripe')(process.env.TEST_SECRET_KEY);
 const knex = require('../../../db_config/knex.js');
-
-function dollars_to_cents (amount) {
-  if (typeof amount !== 'string' && typeof amount !== 'number') {
-    throw new Error('Amount passed must be of type String or Number.')
-  }
-
-  return Math.round(100 * parseFloat(typeof amount === 'string' ? amount.replace(/[$,]/g, '') : amount))
-}
+const dollars_to_cents = require('../../helpers/dollars_to_cents');
 
 exports.purchase = (req, res, next) => {
-  // res.json(req.body);
-  console.log('REQ.BODY', req.body);
   const charge = stripe.charges.create({
     amount: dollars_to_cents(req.body.invoice.amount),
     currency: 'usd',
@@ -21,12 +12,9 @@ exports.purchase = (req, res, next) => {
     metadata: req.body.invoice
   }, (err, charge) => {
     if (err && err.type === 'StripeCardError') {
-      // The card has been declined
-      console.log('DECLINED');
-      res.json('Declined');
+      res.json('DECLINED');
     } else {
-      console.log('SUCCESS', charge, err);
-      res.json('Success');
+      res.json('SUCCESS');
     }
   });
 };

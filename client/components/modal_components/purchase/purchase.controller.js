@@ -10,8 +10,6 @@ export default class PurchaseController {
   }
 
   submitPurchase() {
-    console.log('SUBMIT PURCHASE CALLED', this.stripe, this.purchaseForm);
-
     this.stripe.card.createToken({
       number: this.purchaseForm.cardNumber,
       cvc: this.purchaseForm.cardSecurityCard,
