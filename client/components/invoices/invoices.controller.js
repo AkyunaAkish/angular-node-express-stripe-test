@@ -1,5 +1,6 @@
 import { HOST } from '../../helpers/constants.js';
 import AddInvoiceController from '../modal_components/add_invoice/add_invoice.controller.js';
+import PurchaseController from '../modal_components/purchase/purchase.controller.js';
 
 export default class InvoicesController {
   constructor($http, $uibModal, InvoicesService, $scope){
@@ -28,6 +29,17 @@ export default class InvoicesController {
     });
   }
 
+  makePurchase(invoice) {
+    this.InvoicesService.setCurrentInvoice(invoice);
+    this.$uibModal.open({
+      scope: this.$scope,
+      show: true,
+      template: require('../modal_components/purchase/purchase.html'),
+      controller: PurchaseController,
+      controllerAs: 'vm',
+      size: 'lg'
+    });
+  }
 };
 
 InvoicesController.$inject = ['$http', '$uibModal', 'InvoicesService', '$scope'];

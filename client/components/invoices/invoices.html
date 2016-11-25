@@ -21,11 +21,11 @@
     <tbody>
       <tr ng-repeat='invoice in vm.invoices'>
         <td ng-bind='invoice.id'></td>
-        <td ng-bind='invoice.amount'></td>
+        <td ng-bind='invoice.amount | currency'></td>
         <td ng-bind='invoice.first_name'></td>
         <td ng-bind='invoice.last_name'></td>
         <td>
-          <button class='greenButton'>Pay Now</button>
+          <button class='greenButton' ng-click='vm.makePurchase(invoice)'>Pay Now</button>
         </td>
         <td>
           <button class='orangeButton'>Subscribe Now</button>

@@ -8,11 +8,12 @@ export default class InvoicesService {
   }
 
   setCurrentInvoice(invoice) {
-
+    this.currentInvoice = invoice;
+    console.log('CURRENT INVOICE SET', this.currentInvoice);
   }
 
   getCurrentInvoice(invoice) {
-
+    return this.currentInvoice;
   }
 
   getInvoices() {

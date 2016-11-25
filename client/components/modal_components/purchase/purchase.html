@@ -1,31 +1,32 @@
-<div class='sectionContainer'>
-  <div>
-    <button class='greenButton' ui-sref='home'>Home</button>
-  </div>
+<header class='modalHeader'>
+  <h1>Make a Purchase</h1>
+  <button class='closeModalButton pull-right redButton' ng-click='vm.closeModal()'>X</button>
+</header>
 
-  <div>
-    <h1 ng-bind='purchase.title'></h1>
-  </div>
-
-  <div>
-    <form ng-submit='purchase.submitPurchase()' novalidate>
-      <label for='firstname'>First Name
-        <input type='text' name='firstname' placeholder='First Name' ng-model='purchase.purchaseForm.firstName' required>
+<section class='modalFormSection'>
+  <p>Invoice #: {{vm.currentInvoice.id}}</p>
+  <p>Amount: {{vm.currentInvoice.amount | currency}}</p>
+  <form name='form' ng-submit='vm.submitPurchase()' novalidate>
+    <label for='firstname'>First Name On Card
+      <input type='text' name='firstname' placeholder='First Name' ng-model='vm.purchaseForm.firstName' required/>
+    </label>
+    <label for='lastname'>Last Name On Card
+      <input type='text' name='lastname' placeholder='Last Name' ng-model='vm.purchaseForm.lastName' required/>
+    </label>
+    <label for='cardnumber'>Card Number
+      <input type='number' name='cardnumber' placeholder='Card Number' ng-model='vm.purchaseForm.cardNumber' required/>
+    </label>
+    <label for='securitycode'>Card Security Code <br/> (3 or 4 digit number on back of card)
+      <input type='number' maxlength='4' name='securitycode' placeholder='Card Security Code' ng-model='vm.purchaseForm.cardSecurityCode' required/>
+    </label>
+    <div cc-exp>
+      <label for='exp_month'>Card Expiration Month
+        <input ng-model='vm.purchaseForm.exp_month' name='exp_month' placeholder='MM' cc-exp-month required/>
       </label>
-      <label for='lastname'>Last Name
-        <input type='text' name='lastname' placeholder='Last Name' ng-model='purchase.purchaseForm.lastName' required>
+      <label for='exp_year'>Card Expiration Year
+        <input ng-model='vm.purchaseForm.exp_year' name='exp_year' placeholder='YY' cc-exp-year required/>
       </label>
-      <label for='cardnumber'>Card Number
-        <input type='text' name='cardnumber' placeholder='Card Number' ng-model='purchase.purchaseForm.cardNumber' required>
-      </label>
-      <label for='securitycode'>Card Security Code(3 or 4 digit number on back of card)
-        <input type='text' name='securitycode' placeholder='Card Security Code' ng-model='purchase.purchaseForm.cardSecurityCode' required>
-      </label>
-      <label for='expiration'>Card Expiration Date
-        <input type='date' name='expiration' placeholder='Card Expiration Date' ng-model='purchase.purchaseForm.cardExpirationDate' required>
-      </label>
-
-      <button class='greenButton' type='submit'>Submit Purchase</button>
-    </form>
-  </div>
-</div>
+    </div>
+    <button class='greenButton' ng-disabled='form.$invalid' type='submit'>Submit Purchase</button>
+  </form>
+</section>
