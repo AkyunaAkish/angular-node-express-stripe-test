@@ -1,36 +1,40 @@
-<div class='sectionContainer'>
-  <div>
-    <button class='greenButton' ui-sref='home'>Home</button>
-  </div>
+<header class='modalHeader'>
+  <h1>Create Subscription</h1>
+  <button class='closeModalButton pull-right redButton' ng-click='vm.closeModal()'>X</button>
+</header>
 
-  <div>
-    <h1 ng-bind='subscription.title'></h1>
-  </div>
-
-  <div>
-    <form ng-submit='purchase.submitSubscription()' novalidate>
-      <label for='firstname'>First Name
-        <input type='text' name='firstname' placeholder='First Name' ng-model='purchase.purchaseForm.firstName' required>
+<section class='modalFormSection'>
+  <p>Invoice #: {{vm.currentInvoice.id}}</p>
+  <p>Amount: {{vm.currentInvoice.amount | currency}}</p>
+  <form name='form' ng-submit='vm.submitSubscription()' novalidate>
+    <label for='email'>Your Email
+      <input type='email' name='email' placeholder='Your Email' ng-model='vm.subscriptionForm.email' required/>
+    </label>
+    <label for='firstname'>First Name On Card
+      <input type='text' name='firstname' placeholder='First Name' ng-model='vm.subscriptionForm.firstName' required/>
+    </label>
+    <label for='lastname'>Last Name On Card
+      <input type='text' name='lastname' placeholder='Last Name' ng-model='vm.subscriptionForm.lastName' required/>
+    </label>
+    <label for='cardnumber'>Card Number
+      <input type='number' name='cardnumber' placeholder='Card Number' ng-model='vm.subscriptionForm.cardNumber' required/>
+    </label>
+    <label for='securitycode'>Card Security Code <br/> (3 or 4 digit number on back of card)
+      <input type='number' maxlength='4' name='securitycode' placeholder='Card Security Code' ng-model='vm.subscriptionForm.cardSecurityCode' required/>
+    </label>
+    <label for='frequency'>Payment Frequency
+      <select name='frequency' ng-model='vm.subscriptionForm.frequency'>
+        <option value='monthly' ng-selected='true'>Monthly</option>
+      </select>
+    </label>
+    <div cc-exp>
+      <label for='exp_month'>Card Expiration Month
+        <input ng-model='vm.subscriptionForm.exp_month' name='exp_month' placeholder='MM' cc-exp-month required/>
       </label>
-      <label for='lastname'>Last Name
-        <input type='text' name='lastname' placeholder='Last Name' ng-model='purchase.purchaseForm.lastName' required>
+      <label for='exp_year'>Card Expiration Year
+        <input ng-model='vm.subscriptionForm.exp_year' name='exp_year' placeholder='YY' cc-exp-year required/>
       </label>
-      <label for='cardnumber'>Card Number
-        <input type='text' name='cardnumber' placeholder='Card Number' ng-model='purchase.purchaseForm.cardNumber' required>
-      </label>
-      <label for='securitycode'>Card Security Code(3 or 4 digit number on back of card)
-        <input type='text' name='securitycode' placeholder='Card Security Code' ng-model='purchase.purchaseForm.cardSecurityCode' required>
-      </label>
-      <label for='expiration'>Card Expiration Date
-        <input type='date' name='expiration' placeholder='Card Expiration Date' ng-model='purchase.purchaseForm.cardExpirationDate' required>
-      </label>
-      <label for='frequency'>Fruency
-        <select ng-model='purchase.purchaseForm.frequency' name='frequency' required>
-          <option value='monthly'>Monthly</option>
-        </select>
-      </label>
-
-      <button class='greenButton' type='submit'>Submit Subscription</button>
-    </form>
-  </div>
-</div>
+    </div>
+    <button class='greenButton' ng-disabled='form.$invalid' type='submit'>Submit Subscription</button>
+  </form>
+</section>
