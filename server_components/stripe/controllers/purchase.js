@@ -12,9 +12,29 @@ exports.purchase = (req, res, next) => {
     metadata: req.body.invoice
   }, (err, charge) => {
     if (err && err.type === 'StripeCardError') {
-      res.json('DECLINED');
+      res.json({
+        status: err.statusCode,
+        err: err,
+        charge: charge
+      });
     } else {
-      res.json('SUCCESS');
+      knex('purchases')
+      .insert({
+        first_name: req.body.invoice.first_name,
+        last_name: req.body.invoice.last_name,
+        invoice_id: req.body.invoice.id,
+        amount: req.body.invoice.id,
+        stripe_id: charge.id
+      })
+      .then(() => {
+        res.json({
+          err: err,
+          charge: charge
+        });
+      })
+      .catch((err) => {
+        res.json(err);
+      });
     }
   });
 };

@@ -9,14 +9,22 @@ export default class InvoicesController {
     this.$http = $http;
     this.$uibModal = $uibModal;
     this.InvoicesService = InvoicesService;
-    this.InvoicesService.updateInvoices();
-    this.invoices = this.InvoicesService.getInvoices();
+    this.InvoicesService.updateInvoices()
+    .then(() => {
+      this.invoices = this.InvoicesService.getInvoices();
+      console.log('THIS.INVOICES', this.invoices);
+    });
+
 
     $scope.$watch(() => {
       return this.InvoicesService.getInvoices();
     }, (newValue) => {
       this.invoices = newValue;
     }, true);
+
+    // setInterval(() => {
+    //   console.log(this.invoices);
+    // }, 2000);
   }
 
   addInvoice() {
@@ -53,6 +61,7 @@ export default class InvoicesController {
       size: 'lg'
     });
   }
+
 };
 
 InvoicesController.$inject = ['$http', '$uibModal', 'InvoicesService', '$scope'];

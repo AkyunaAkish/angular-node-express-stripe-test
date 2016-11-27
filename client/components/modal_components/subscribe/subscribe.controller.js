@@ -29,10 +29,16 @@ export default class SubscriptionController {
         stripe_token: res.id
       })
       .then((res) => {
-        console.log('RES FROM TEST SUBSCRIPTION', res);
+        console.log("RES WHEN CALLING SUBSCRIBE!", res);
+        this.InvoicesService.updateInvoices()
+        .then((result) => {
+          console.log('result', result);
+          this.closeModal();
+        });
       })
       .catch((err) => {
         console.log('ERROR IN TEST SUBSCRIPTION', err);
+        alert(err);
       });
     });
 

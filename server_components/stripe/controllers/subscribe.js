@@ -21,47 +21,37 @@ exports.subscribe = (req, res, next) => {
       }, (err, customer) => {
         const subscription = stripe.subscriptions.create({
           customer: customer.id,
-          plan: `${req.body.subscription_info.card_holder_email} monthly`,
+          plan: plan.id,
         }, (err, subscription) => {
           if(err) {
             res.json({error: err});
           } else {
-            res.json(subscription);
+            console.log('IN ELSE!!!!');
+            console.log('REQ BODY!!!!', req.body);
+            console.log('SUBSCRIPTION!!!!', subscription);
+            knex('subscriptions')
+            .insert({
+              first_name: req.body.subscription_info.card_holder_first_name,
+              last_name: req.body.subscription_info.card_holder_last_name,
+              invoice_id: req.body.invoice.id,
+              amount: req.body.invoice.amount,
+              frequency: req.body.subscription_info.frequency,
+              stripe_id: subscription.id
+            })
+            .then(() => {
+              console.log('in then of knex');
+              res.json({
+                err: err,
+                subscription: subscription
+              });
+            })
+            .catch((err) => {
+              console.log('in catch of knex', err);
+              res.json(err);
+            });
           }
         });
       })
     }
   });
 };
-
-
-// you must create a plan first
-// var plan = stripe.plans.create({
-//   name: 'Basic Plan',
-//   id: 'basic-monthly',
-//   interval: 'month',
-//   currency: 'usd',
-//   amount: 0,
-// }, function(err, plan) {
-//   // asynchronously called
-// });
-
-
-// then you must create a customer
-
-// stripe.customers.create({
-//   description: 'Customer for matthew.wilson@example.com',
-//   email: 'jenny.rosen@example.com',
-//   source: 'tok_19J4H1F4StKueV9cHfwY4p6i' // obtained with Stripe.js
-// }, function(err, customer) {
-//   // asynchronously called
-// })
-
-// then you must subscribe that customer to the plan you created
-//
-// stripe.subscriptions.create({
-//   customer: customer.id,
-//   plan: 'basic-monthly',
-// }, function(err, subscription) {
-//   // asynchronously called
-// });

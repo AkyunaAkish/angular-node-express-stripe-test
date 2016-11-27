@@ -25,13 +25,29 @@
         <td ng-bind='invoice.first_name'></td>
         <td ng-bind='invoice.last_name'></td>
         <td>
-          <button class='greenButton' ng-click='vm.makePurchase(invoice)'>Pay Now</button>
-        </td>
-        <td>
-          <button class='orangeButton' ng-click='vm.createSubscription(invoice)'>Subscribe Now</button>
-        </td>
-      </tr>
-      
-    </tbody>
-  </table>
+          <button
+          ng-if='!invoice.purchased && !invoice.subscribed'
+          class='greenButton'
+          ng-click='vm.makePurchase(invoice)'>
+          Pay Now
+        </button>
+        <p ng-if='invoice.purchased && !invoice.subscribed'>
+          Purchased
+        </p>
+      </td>
+      <td>
+        <button
+        ng-if='!invoice.purchased && !invoice.subscribed'
+        class='orangeButton'
+        ng-click='vm.createSubscription(invoice)'>
+        Subscribe Now
+      </button>
+      <p ng-if='!invoice.purchased && invoice.subscribed'>
+        Subscribed
+      </p>
+    </td>
+  </tr>
+
+</tbody>
+</table>
 </div>

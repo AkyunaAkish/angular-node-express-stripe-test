@@ -18,10 +18,14 @@ export default class PurchaseController {
     }, (status, res) => {
       this.$http.post(`${HOST}/stripe/purchase`, {invoice: this.currentInvoice, stripe_token: res.id})
       .then((res) => {
-        console.log('RES FROM TEST PURCHASE', res);
+        this.InvoicesService.updateInvoices()
+        .then(() => {
+          this.closeModal();
+        });
       })
       .catch((err) => {
         console.log('ERROR IN TEST PURCHASE', err);
+        alert(err);
       });
     });
   }

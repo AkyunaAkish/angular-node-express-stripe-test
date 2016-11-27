@@ -6,6 +6,8 @@ import 'angular-credit-cards';
 
 import invoicesDirective from './components/invoices/invoices.directive.js';
 import InvoicesService from './services/invoices.service.js';
+import PurchasesService from './services/purchases.service.js';
+import SubscriptionsService from './services/subscriptions.service.js';
 import Router from './routes.js';
 import './sass/style.scss';
 
@@ -19,6 +21,8 @@ angular.module('stripeApp', [
 .config((stripeProvider) => {
   stripeProvider.setPublishableKey(process.env.TEST_PUBLISHABLE_KEY);
 })
+.service('PurchasesService', PurchasesService)
+.service('SubscriptionsService', SubscriptionsService)
 .service('InvoicesService', InvoicesService)
 .directive('invoicesDirective', invoicesDirective)
 .config( Router );

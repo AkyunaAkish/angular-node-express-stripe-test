@@ -5,6 +5,7 @@ const knex = require('../../../db_config/knex.js');
 exports.getAll = (req, res, next) => {
   knex('invoices')
   .then((invoices) => {
+    console.log('INVOICES', invoices);
     res.json(invoices);
   })
   .catch((err) => {
