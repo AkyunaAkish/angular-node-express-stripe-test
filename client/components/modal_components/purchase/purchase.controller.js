@@ -1,6 +1,6 @@
 import { HOST } from '../../../helpers/constants.js';
 
-export default class PurchaseController {
+class PurchaseController {
   constructor($http, stripe, $uibModalInstance, InvoicesService){
     this.$http = $http;
     this.stripe = stripe;
@@ -36,3 +36,5 @@ export default class PurchaseController {
 };
 
 PurchaseController.$inject = ['$http', 'stripe', '$uibModalInstance', 'InvoicesService'];
+
+export default PurchaseController;

@@ -1,7 +1,6 @@
 require('dotenv').config();
 
 const webpack = require('webpack');
-const ClosureCompilerPlugin = require('webpack-closure-compiler');
 const ENV = process.env.NODE_ENV;
 const DEV = ENV === 'development';
 
@@ -54,10 +53,6 @@ if(!DEV) {
   config.plugins.push(
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')
-    }),
-    new ClosureCompilerPlugin({
-      compilation_level: 'ADVANCED',
-      create_source_map: false
     })
   );
 } else {

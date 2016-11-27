@@ -3,7 +3,7 @@ import AddInvoiceController from '../modal_components/add_invoice/add_invoice.co
 import PurchaseController from '../modal_components/purchase/purchase.controller.js';
 import SubscriptionController from '../modal_components/subscribe/subscribe.controller.js';
 
-export default class InvoicesController {
+class InvoicesController {
   constructor($http, $uibModal, InvoicesService, $scope){
     this.title = 'Stripe Test Invoices'
     this.$http = $http;
@@ -65,3 +65,5 @@ export default class InvoicesController {
 };
 
 InvoicesController.$inject = ['$http', '$uibModal', 'InvoicesService', '$scope'];
+
+export default InvoicesController;

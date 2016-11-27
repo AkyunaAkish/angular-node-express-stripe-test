@@ -1,6 +1,6 @@
 import { HOST } from '../../../helpers/constants.js';
 
-export default class SubscriptionController {
+class SubscriptionController {
   constructor($http, stripe, $uibModalInstance, InvoicesService){
     this.$http = $http;
     this.stripe = stripe;
@@ -50,3 +50,5 @@ export default class SubscriptionController {
 };
 
 SubscriptionController.$inject = ['$http', 'stripe', '$uibModalInstance', 'InvoicesService'];
+
+export default SubscriptionController;

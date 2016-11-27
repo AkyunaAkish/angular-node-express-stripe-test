@@ -1,6 +1,6 @@
 import { HOST } from '../helpers/constants.js';
 
-export default class SubscriptionsService {
+class SubscriptionsService {
   constructor($http){
     this.$http = $http;
   }
@@ -14,3 +14,5 @@ export default class SubscriptionsService {
 };
 
 SubscriptionsService.$inject = ['$http'];
+
+export default SubscriptionsService;

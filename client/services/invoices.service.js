@@ -1,6 +1,6 @@
 import { HOST } from '../helpers/constants.js';
 
-export default class InvoicesService {
+class InvoicesService {
   constructor($http, PurchasesService, SubscriptionsService, $q){
     this.currentInvoice = null;
     this.invoices = [];
@@ -72,3 +72,5 @@ export default class InvoicesService {
 };
 
 InvoicesService.$inject = ['$http', 'PurchasesService', 'SubscriptionsService', '$q'];
+
+export default InvoicesService;
